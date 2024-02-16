@@ -1,0 +1,21 @@
+# Maintainer: Dallo <dallo@tutanota.com>
+
+pkgname=orosound-link
+pkgver=2.7.2
+pkgrel=1
+pkgdesc="Orosound Link"
+arch=('x86_64')
+url="https://www.orosound.com"
+license=('UNLICENSED')
+depends=('libgtk-3-0' 'libnotify4' 'libnss3' 'libxss1' 'libxtst6' 'xdg-utils' 'libatspi2.0-0' 'libuuid1' 'libsecret-1-0')
+options=('!strip' '!emptydirs')
+provides=("orosound-link")
+conflicts=("orosound-link")
+install=orosound-link.install
+source=("https://orosound-link.s3.eu-west-3.amazonaws.com/linux/OrosoundLink_v2.7.2.deb")
+sha256sums=('SKIP')
+
+package() {
+	# Extract package data
+	tar -xJ -f data.tar.xz -C "${pkgdir}"
+}
